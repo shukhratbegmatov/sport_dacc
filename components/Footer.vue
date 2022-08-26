@@ -5,11 +5,10 @@
         <div class="row">
           <div class="col-xl-6">
             <div>
-              <img src="../assets/image/logo.png" alt="">
+              <img :src="componey_info.logo_url" alt="">
             </div>
             <div class="footer_description">
-              Оказание технической помощи в вопросах использования технических средств, создания веб-сайтов, а также
-              развития и ускорения информационных порталов и веб-ресурсов
+              {{componey_info.short_description}}
             </div>
             <div class="footer_messanger">
                 <div class="f_links">
@@ -47,78 +46,31 @@
           </div>
           <div class="col-xl-6">
             <div class="row">
-              <div class="col-xl-6">
-                <div class="f_head">Центр</div>
-                <div class="f_links_m">
-                  <NuxtLink to="/">
-                    О нас
+              <div class="col-xl-3">
+                <div class="f_head">{{footer.title}}</div>
+                <div class="f_links_m" v-for="item in footer.child">
+                  <NuxtLink :to="localePath(`/${item.url}`)">
+                    {{item.title}}
                   </NuxtLink>
-                </div>
-                <div class="f_links_m">
-                  <NuxtLink to="/">
-                    Руководство
-                  </NuxtLink>
-                </div>
-                <div class="f_links_m">
-                  <NuxtLink to="/">
-                    Отдел
-                  </NuxtLink>
-                </div>
-                <div class="f_links_m">
-                  <NuxtLink to="/">
-                    Структура
-                  </NuxtLink>
-                </div>
-                <div class="f_links_m">
-                  <NuxtLink to="/">
-                    Карьера
-                  </NuxtLink>
-                </div>
-                <div class="f_links_m">
-                  <NuxtLink to="/">
-                    Открытые данные
-                  </NuxtLink>
-                </div>
-                <div class="f_links_m">
-                  <NuxtLink to="/">
-                    портфолио
-                  </NuxtLink>
-                </div>
+                </div> 
 
               </div>
-              <div class="col-xl-6">
-                <div class="f_head">Документы</div>
-                <div class="f_links_m">
-                  <NuxtLink to="/">
-                    Законы Республики Узбекистан
+              <div class="col-xl-4">
+               
+                <div class="f_head">{{footer1.title}}</div>
+                <div class="f_links_m" v-for="item in footer1.child">
+                  <NuxtLink :to="localePath(`/${item.url}`)">
+                    {{item.title}}
                   </NuxtLink>
-                </div>
-                <div class="f_links_m">
-                  <NuxtLink to="/">
-                    Указы, постановления и решения Президента..
-                  </NuxtLink>
-                </div>
-                <div class="f_links_m">
-                  <NuxtLink to="/">
-                    Постановления и  распоряжения Кабинета  Министров..
-                  </NuxtLink>
-                </div>
-                <div class="f_links_m">
-                  <NuxtLink to="/">
-                    Государственные стандарты  Республики Узбекистан
-                  </NuxtLink>
-                </div>
-                <div class="f_links_m">
-                  <NuxtLink to="/">
-                    Нормативные  документы центра
-                  </NuxtLink>
-                </div>
-                <div class="f_links_m">
-                  <NuxtLink to="/">
-                    Открытая информация
-                  </NuxtLink>
-                </div>
+                </div> 
 
+              </div>
+              <div class="col-xl-5">
+                  <div class="footer_cards">
+                      <div class="f_tel">{{$t('phone')}}: {{contacts.phone_number}}</div>
+                      <div class="f_email">{{$t('email')}}: {{contacts.email_address}}</div>
+                      <div class="f_address">{{$t('address')}}: {{contacts.address}}</div>
+                  </div>
               </div>
             </div>
           </div>
@@ -127,3 +79,44 @@
     </footer>
   </div>
 </template>
+<script>
+export default {
+  name: 'IndexPage',
+  data(){
+    return{
+      footer:[],
+      componey_info:[],
+      footer1:[],
+      contacts:{}
+
+    }
+  },
+  mounted(){
+      this.$axios.$get('footer/',
+    {
+        headers: {
+        'Accept-Language': this.$i18n.locale
+    }
+    
+    }
+    )
+      .then(res=>{
+        this.footer=res.menus[0]
+        this.footer1=res.menus[3]
+        this.componey_info=res.company_info[0]
+
+      })
+   this.$axios.$get('contact/',
+    {
+        headers: {
+        'Accept-Language': this.$i18n.locale
+    }
+    
+    }
+    )
+      .then(res=>{
+        this.contacts=res[0]
+      })
+  }
+}
+</script>

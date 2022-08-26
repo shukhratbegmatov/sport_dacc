@@ -11,7 +11,7 @@
         <div class="row">
           <div class="col-xl-6">
             <div class="main_text ">
-              {{$t('open_data')}}
+              ОТКРЫТЫЕ ДАННЫЕ
             </div>
           </div>
           </div>

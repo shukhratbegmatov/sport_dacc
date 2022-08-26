@@ -11,7 +11,7 @@
         <div class="row">
           <div class="col-xl-6">
             <div class="main_text ">
-              Карьера в команде  Dacc
+                {{$t('careers')}}
             </div>
           </div>
           </div>
@@ -19,7 +19,7 @@
     </div>
     <div class="manage_f">
      <section class="nav_left_container struct">
-      <div class="career_cards" v-for="item in 4" :key="item">
+      <div class="career_cards" v-for="item in careers" :key="item">
         <div>
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.0009 30.6669C24.1011 30.6669 30.6677 24.1003 30.6677 16C30.6677 7.89971 24.1011 1.33313 16.0009 1.33313C7.90057 1.33313 1.33398 7.89971 1.33398 16C1.33398 24.1003 7.90057 30.6669 16.0009 30.6669Z" fill="#E6FFED"/>
@@ -28,7 +28,7 @@
           </svg>
         </div>
         <div class="carerr_text">
-          Технокорп занимается разработкой и внедрением информационных технологий в нашей стране
+          {{item.description}}
         </div>
         <div>
 
@@ -37,49 +37,60 @@
     </section>
     <section class="container_s">
         <div class="resume">
-            <div class="career_text1">Готовы присоединиться к нашей команде?</div>
+            <div>
+                <div class="career_text1">{{$t('d_career')}}</div>
           <div class="career_button">
             <NuxtLink to="/">
-              Отправить резюме
+{{$t('send')}}
             </NuxtLink>
           </div>
+            </div>
+            <div class="icon_r">
+
+                <svg width="300" height="184" viewBox="0 0 300 184" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M91.8231 55.6472L66.2699 52.5461L69.3667 27.0287C70.2183 20.0115 65.1656 13.5723 58.1385 12.7195C51.1113 11.8667 44.6651 16.9104 43.8135 23.9277L40.7168 49.4451L15.1637 46.344C8.13655 45.4912 1.69034 50.5349 0.838738 57.5522C-0.0128608 64.5695 5.03983 71.0086 12.0669 71.8614L37.6201 74.9625L34.5234 100.48C33.6718 107.497 38.7244 113.936 45.7516 114.789C52.7787 115.642 59.2249 110.598 60.0765 103.581L63.1732 78.0635L88.7263 81.1646C95.7535 82.0174 102.2 76.9737 103.051 69.9564C103.903 62.9391 98.8502 56.5 91.8231 55.6472ZM230.817 85.4617C252.026 88.0356 271.094 73.0012 273.664 51.8217C276.234 30.6423 261.316 11.4834 240.107 8.90954C236.019 8.41337 231.98 8.57064 228.264 9.28477C234.292 20.5031 236.991 33.5183 235.334 47.1701C233.678 60.8219 227.832 72.6707 219.407 82.2645C222.845 83.847 226.728 84.9656 230.817 85.4617ZM166.934 77.7091C188.143 80.283 207.211 65.2485 209.781 44.0691C212.351 22.8896 197.433 3.73077 176.224 1.15689C155.015 -1.41699 135.82 13.602 133.249 34.7814C130.679 55.9608 145.725 75.1352 166.934 77.7091ZM163.837 103.226C138.284 100.125 85.6296 106.682 82.5329 132.199L80.9845 144.958C80.1329 151.975 85.1856 158.415 92.2127 159.267L219.978 174.773C227.006 175.625 233.452 170.582 234.303 163.564L235.852 150.806C238.948 125.288 189.391 106.328 163.837 103.226ZM248.171 115.532C257.645 126.133 263.232 138.852 261.405 153.907L259.082 173.045C258.819 175.214 258.3 177.352 257.669 179.347L290.25 183.301C293.827 183.735 296.978 181.269 297.412 177.696L299.735 158.558C302.119 138.91 273.31 123.114 248.171 115.532Z" fill="url(#paint0_linear_515_9046)"/>
+                <defs>
+                <linearGradient id="paint0_linear_515_9046" x1="163.448" y1="-0.393641" x2="143.319" y2="165.469" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#3518EF"/>
+                <stop offset="1" stop-color="#928EAE" stop-opacity="0.35"/>
+                </linearGradient>
+                </defs>
+                </svg>
+
+        </div>
+
         </div>
     </section>
     <section class="container">
       <div class="row">
-        <div class="col-xl-4" v-for="item in 6">
+        <div class="col-xl-4" v-for="items in marketing_info">
           <div class="car_card">
             <div class="car_icon">
               <div>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13M16 3.13C16.8604 3.3503 17.623 3.8507 18.1676 4.55231C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89317 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z" stroke="#5A46D5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                <img :src="items.logo_url">
               </div>
             </div>
             <div class="car_text">
-              Большие и интересные проекты  с уникальной структурой
+              {{items.title}}
             </div>
             <div class="car_description">
-              У нас есть интересные и разнообразные по сложности проекты!
+              {{items.description}}
             </div>
           </div>
         </div>
       </div>
       <div class="setResume">
-        <div class="career_title">Отправьте резюме</div>
+        <div class="career_title">{{$t('send')}}</div>
         <div class="form_category">
-          <form>
+          <form @submit.prevent="postResume()">
             <div class="form_careers">
-              <input type="text" placeholder="Ваше имя">
+              <input type="text" :placeholder="$t('name')" v-model="name">
             </div>
             <div class="form_careers">
-              <input type="text" placeholder="Email">
+              <input type="text" :placeholder="$t('email')" v-model="email_address">
             </div>
             <div class="form_careers">
-              <input type="text" placeholder="Телефон">
-            </div>
-            <div class="form_careers">
-              <input type="text" placeholder="Сообщение">
+              <input type="text" :placeholder="$t('cover')" v-model="message">
             </div>
             <label for="fileR" class="form_files">
               <div class="f_career">
@@ -98,13 +109,18 @@
                   </svg>
                 </div>
                 <div>
-                  <span>Резюме</span>
+                  <span>{{$t('resume')}}</span>
                 </div>
               </div>
             </label>
-            <input type="file" class="d-none" id="fileR">
+            <input type="file" class="d-none" id="fileR" 
+            @change="trySubmitFile"
+            accept="*"
+            name="datafiles"
+            ref="datafiles"
+            >
             <div class="f_career_btn">
-              <button>Отправить резюме</button>
+              <button>{{$t('send')}}</button>
             </div>
           </form>
         </div>
@@ -123,7 +139,69 @@
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  data(){
+    return{
+      careers:[],
+      marketing_info:[],
+      cv_file:'',
+      message:'',
+      email_address:'',
+      name:'',
+         myImages:[],
+      imageUrl:[],
+      files_name:[],
+    }
+  },
+  mounted(){
+    this.$axios.$get('career-info/',
+     {
+       headers: {
+        'Accept-Language': this.$i18n.locale
+    }
+     }
+     )
+    .then(res=>{
+      this.careers=res.career_info
+      this.marketing_info=res.marketing_info
+    })
+  },
+  methods:{
+      trySubmitFile(e) {
+      for (let i = 0; i < e.target.files.length; i++) {
+        this.files_name.push(e.target.files[i])
+      }
+      var files = Array.from(e.target.files);
+      console.log(typeof (files))
+      files.forEach((file) => {
+        this.myImages.push(file);
+        var reader = new FileReader();
+        var vm = this;
+        reader.onload = function(e) {
+          vm.imageUrl.push(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      });
+    },
+    postResume(){
+       const form = new FormData();
+         form.append("cv_file", this.myImages[0]);
+      form.append( "message",this.message);
+      form.append("email_address",this.email_address);
+      form.append("name",this.name);
+      this.$axios.$post('resume/',form)
+      .then(()=>{
+        this.message=''
+        this.email_address=''
+        this.name=''
+      })
+      .catch(()=>{
+        this.message=''
+        this.email_address=''
+        this.name=''
+      })
+    }
+  }
 }
 </script>
 

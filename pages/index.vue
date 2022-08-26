@@ -1,6 +1,7 @@
 <template>
   <div>
     
+      
       <div class="test_rejm"><marquee>{{$t('test')}}</marquee></div>
       <div class="head_main">
            <header class="header_home">
@@ -70,7 +71,7 @@
       </div>
      <div class="card_f">
  <div class="row cards_one">
-        <div class="col-xl-3" v-for="item in main_page.services" >
+        <div class="col-xl-3 col-sm-6" v-for="item in main_page.services" >
           <NuxtLink to="/">
             <div class="main_cards">
               <div class="card_img">
@@ -132,7 +133,7 @@
           </div>
          </div>
         <div class="row ">
-          <div class="col-xl-3">
+          <div class="col-xl-3 col-sm-6">
             <div class="m_contact">
              <div class="m_c_main">
                <div class="m_c_icon">
@@ -150,7 +151,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3">
+          <div class="col-xl-3 col-sm-6">
             <div class="m_contact">
               <div class="m_c_main">
                 <div class="m_c_icon">
@@ -170,7 +171,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3">
+          <div class="col-xl-3 col-sm-6">
             <div class="m_contact">
               <div class="m_c_main">
                 <div class="m_c_icon">
@@ -188,7 +189,7 @@
               </div>
             </div>
           </div>
-          <div class="col-xl-3">
+          <div class="col-xl-3 col-sm-6">
             <div class="m_contact">
               <div class="m_c_main">
                 <div class="m_c_icon">
@@ -256,7 +257,8 @@ export default {
       message:'',
       email_address:'',
       name:'',
-      projects:[]
+      projects:[],
+      menu:[]
     }
   },
   mounted() {
@@ -270,6 +272,16 @@ export default {
         this.site=res.site
         this.projects=res.projects
       })
+      this.$axios.$get('main-page/',
+     {
+       headers: {
+        'Accept-Language': this.$i18n.locale
+    }
+     }
+     )
+    .then(res=>{
+      this.menu=res.menu
+    })
   },
   methods:{
     application(){

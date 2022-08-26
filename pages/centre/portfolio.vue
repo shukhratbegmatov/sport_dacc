@@ -11,7 +11,7 @@
         <div class="row">
           <div class="col-xl-6">
             <div class="main_text ">
-              портфолио
+             {{$t('portfolio')}}
             </div>
           </div>
           </div>
@@ -20,16 +20,16 @@
     <div class="manage_f">
     <section class="container_s">
       <div >
-        <div class="projects" v-for="item in 3">
-          <h1 class="portfolio_names">CRM</h1>
+        <div class="projects" v-for="item in portfolio">
+          <!-- <h1 class="portfolio_names">CRM</h1> -->
           <div class="pro_img">
-            <img src="../../assets/image/image7.png" alt="">
+            <img :src="item.image[0].image_url" alt="">
           </div>
           <div class="port_btn" >
-            <div class="pro_title">Внутренняя система Департамента финансов Министерства развития спорта</div>
+            <div class="pro_title">{{item.title}}</div>
             <div class="all_link">
               <NuxtLink to="/">
-                Просмотр проекта
+                {{$t('more_project')}}
               </NuxtLink>
             </div>
           </div>
@@ -48,7 +48,24 @@
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  data(){
+    return{
+      portfolio:[]
+    }
+  },
+   mounted(){
+    this.$axios.$get('portfolio/',
+     {
+       headers: {
+        'Accept-Language': this.$i18n.locale
+    }
+     }
+     )
+    .then(res=>{
+      this.portfolio=res
+    })
+  },
 }
 </script>
 

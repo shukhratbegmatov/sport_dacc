@@ -11,46 +11,30 @@
         <div class="row">
           <div class="col-xl-6">
             <div class="main_text ">
-            {{structure.title}}
+              Новости
             </div>
           </div>
           </div>
       </div>
     </div>
     <div class="manage_f">
-       <section class="struct main_struct cards_one">
-      <img :src="structure.image_url" alt="">
+    <section class="container_s">
     </section>
     </div>
                   </div>
      </div>
-     
-    <Footer></Footer>
+      <div class="mt_footer">
+<Footer></Footer>
+    
+      </div>
       </div>
 
   </div>
-
-</template>
+ </template>
 
 <script>
 export default {
-  name: 'IndexPage',
-  data(){
-    return{
-      structure:[]
-    }
-  },
-  mounted(){
-    this.$axios.$get('structure/',
-     {
-       headers: {
-        'Accept-Language': this.$i18n.locale
-    }
-     }
-     )
-    .then(res=>{
-      this.structure=res[0]
-    })
-  }
+  name: 'IndexPage'
 }
 </script>
+

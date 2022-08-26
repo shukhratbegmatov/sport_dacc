@@ -2,12 +2,13 @@
   <div>
     
       <div class="test_rejm"><marquee>{{$t('test')}}</marquee></div>
-    <div class="managements">
-    
-      <img class="image_position" src="../../assets/image/contact.svg" alt="">
-      <Navbar></Navbar>
+        <div class="managements port_fo">
+          <div class="cards_one_f">
+                  <div>
+                    <div class="cards_one">
+       <Navbar></Navbar>
       <div class="nav_left_container">
-        <div class="row">
+       <div class="row">
           <div class="col-xl-6">
             <div class="main_text ">
               Контакты
@@ -44,10 +45,12 @@
             </div>
           </div>
         </div>
+      
       </div>
     </div>
-    <section class="nav_left_container struct">
-      <div class="row">
+    <div class="manage_f">
+      <section  >
+      <div class="row cards_one">
         <div class="col-xl-6">
           <div class="phone_link">
             <div class="ph_icon">
@@ -58,29 +61,12 @@
 
             </div>
             <div class="phone_number">
-              +998 55 123 45 67
+              {{contacts.phone_number}}
             </div>
 
           </div>
           <div class="phone_link">
             <div class="ph_icon">
-
-
-              <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 11.25C9.65685 11.25 11 9.90685 11 8.25C11 6.59315 9.65685 5.25 8 5.25C6.34315 5.25 5 6.59315 5 8.25C5 9.90685 6.34315 11.25 8 11.25Z" stroke="#0F054C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M14.0007 11.25C11.7507 16.5 8.00067 22.5 8.00067 22.5C8.00067 22.5 4.25067 16.5 2.00067 11.25C-0.249328 6 3.50067 1.5 8.00067 1.5C12.5007 1.5 16.2507 6 14.0007 11.25Z" stroke="#0F054C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-
-
-            </div>
-            <div class="phone_number">
-              Dacc@gmail.com
-            </div>
-
-          </div>
-          <div class="phone_link">
-            <div class="ph_icon">
-
 
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_266_4353)">
@@ -95,31 +81,119 @@
 
             </div>
             <div class="phone_number">
-              амир темур Улица, 24
+             {{contacts.email_address}}
+            </div>
+
+          </div>
+          <div class="phone_link">
+            <div class="ph_icon">
+
+
+
+              <svg width="16" height="24" viewBox="0 0 16 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 11.25C9.65685 11.25 11 9.90685 11 8.25C11 6.59315 9.65685 5.25 8 5.25C6.34315 5.25 5 6.59315 5 8.25C5 9.90685 6.34315 11.25 8 11.25Z" stroke="#0F054C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14.0007 11.25C11.7507 16.5 8.00067 22.5 8.00067 22.5C8.00067 22.5 4.25067 16.5 2.00067 11.25C-0.249328 6 3.50067 1.5 8.00067 1.5C12.5007 1.5 16.2507 6 14.0007 11.25Z" stroke="#0F054C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+
+
+            </div>
+            <div class="phone_number">
+              {{contacts.address}}
             </div>
 
           </div>
         </div>
         <div class="col-xl-6">
-          <div id="map-wrap" >
-            <client-only>
-              <l-map :zoom=13 :center="[55.9464418,8.1277591]">
-                <l-tile-layer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></l-tile-layer>
-                <l-marker :lat-lng="[55.9464418,8.1277591]"></l-marker>
-              </l-map>
-            </client-only>
+            <div>
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d749.0939921088869!2d69.28076989671513!3d41.32243724350224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8ba7ac0d1e29%3A0xa5b1a5dc18600e2c!2z0JzQuNC90LjRgdGC0LXRgNGB0YLQstC-INGA0LDQt9Cy0LjRgtC40Y8g0YHQv9C-0YDRgtCwINCg0LXRgdC_0YPQsdC70LjQutC4INCj0LfQsdC10LrQuNGB0YLQsNC9!5e0!3m2!1sru!2s!4v1661367295443!5m2!1sru!2s" 
+         width="100%" height="300"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+            <div class="subscribe">
+          <div class="row">
+            <div class="col-xl-6">
+              <div class="sb_title">
+                {{$t('quiz')}}
+              </div>
+              <div class="sb_description">
+               {{$t('quiz_description')}}
+              </div>
+            </div>
+            <div class="col-xl-6">
+              <div class="sb_form">
+                <form @submit.prevent="application()">
+                  <div class="form_input">
+                    <input type="text" :placeholder="$t('name')" v-model="name">
+                  </div>
+                  <div class="form_input">
+                    <input type="text" :placeholder="$t('email')" v-model="email_address">
+                  </div>
+                  <div class="form_input">
+                    <input type="text" :placeholder="$t('message')" v-model="message">
+                  </div>
+                  <div class="form_btn">
+                    <button>{{$t('send')}}</button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
+    
       </div>
     </section>
+ 
+    </div>
+                  </div>
+     </div>
+     
     <Footer></Footer>
+      </div>
 
   </div>
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  data(){
+    return{
+      contacts:[],
+        isActive:false,
+      main_page:[],
+      site:{},
+      message:'',
+      email_address:'',
+      name:'',
+      projects:[],
+      menu:[]
+    }
+  },
+  mounted(){
+      this.$axios.$get('contact/',
+    {
+        headers: {
+        'Accept-Language': this.$i18n.locale
+    }
+    
+    }
+    )
+      .then(res=>{
+        this.contacts=res[0]
+      })
+  },
+  methods:{
+     application(){
+      this.$axios.$post('application/',{
+        "name":this.name,
+        "email_address":this.email_address,
+        "message":this.message
+      })
+      .then(()=>{
+
+      })
+    }
+  }
 }
 </script>
 

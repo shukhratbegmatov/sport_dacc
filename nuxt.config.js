@@ -55,15 +55,15 @@ export default {
                 seo: false,
                 locales: [{
                         code: "uz",
-                        name: "Uzb"
+                        name: "O'zbek"
                     },
                     {
                         code: "ru",
-                        name: "Rus"
+                        name: "Рус"
                     },
                     {
                         code: "en",
-                        name: "Eng"
+                        name: "English"
                     }
                 ],
                 defaultLocale: "uz",
@@ -89,10 +89,23 @@ export default {
                             quiz_description: "Biz sizning savolingizni o'qib chiqamiz va imkon qadar tezroq javob bilan telefon orqali bog'lanamiz.",
                             send: "Jo'natish",
                             name: "F.I.SH",
-                            email: "Email",
+                            email: "Elektron pochta",
                             message: "Xabar",
                             test: "Sayt test rejimida ishlaydi",
-                            main_a: "MARKAZNING ASOSIY MAQSADLARI"
+                            main_a: "MARKAZNING ASOSIY MAQSADLARI",
+                            send: "Rezyume yuborish",
+                            cover: " O'zingiz haqida qisqa",
+                            resume: "Rezyume",
+                            managements: "Rahbariyat",
+                            departments: "Markaz bo'limlari",
+                            portfolio: "Markaz loyihalari",
+                            careers: "Ishga marhamat",
+                            open_data: "Ochiq ma'lumotlar",
+                            d_career: "BIZNING JAMOAGA QO'SHILIShGA TAYYORMISIZMI?",
+                            bt_text: "Vazifalar",
+                            phone: "Telefon raqami",
+                            address: "Manzil"
+
                         },
                         en: {
                             title: 'Contact',
@@ -116,7 +129,19 @@ export default {
                             email: "Email",
                             message: "Message",
                             test: "This site runs in a test mode",
-                            main_a: "MAIN OBJECTIVES OF THE CENTER"
+                            main_a: "MAIN OBJECTIVES OF THE CENTER",
+                            send: "Send us your cv",
+                            cover: " Cover letter (Anything you want to talk about)",
+                            resume: "Resume",
+                            managements: "Management",
+                            departments: "Departments",
+                            portfolio: "Portfolio",
+                            careers: "Careers",
+                            open_data: "Open data",
+                            d_career: "READY TO JOIN OUR TEAM?",
+                            bt_text: "Tasks",
+                            phone: "Phone",
+                            address: "Address"
                         },
                         ru: {
                             title: 'Связь',
@@ -135,12 +160,24 @@ export default {
                             works: "КАК МЫ РАБОТАЕМ!",
                             quiz: "Если есть вопросы, пожалуйста",
                             quiz_description: "Мы прочитаем ваш вопрос и в ближайшее время свяжемся с вами по телефону и сообщим вам ответ.",
-                            send: "Отправит",
+                            send: "Отправить",
                             name: "Ф.И.О",
-                            email: "Email",
+                            email: "Электронная почта",
                             message: "Cообщение",
                             test: "Сайт работает в тестовом режиме",
-                            main_a: "ОСНОВНЫЕ ЗАДАЧИ ЦЕНТРА"
+                            main_a: "ОСНОВНЫЕ ЗАДАЧИ ЦЕНТРА",
+                            send: "Отправить резюме",
+                            cover: "Сообщение",
+                            resume: "Резюме",
+                            managements: "РУКОВОДСТВО",
+                            departments: "ОТДЕЛ",
+                            portfolio: "ПОРТФОЛИО",
+                            careers: "КАРЬЕРА В КОМАНДЕ DACC",
+                            open_data: "ОТКРЫТЫЕ ДАННЫЕ",
+                            d_career: "ГОТОВЫ ПРИСОЕДИНИТЬСЯ К НАШЕЙ КОМАНДЕ?",
+                            bt_text: "Задачи",
+                            phone: "Телефон",
+                            address: "Aдрес"
                         }
                     }
                 }
@@ -165,7 +202,7 @@ export default {
     // },
 
     axios: {
-        baseURL: 'http://backend-dacc.sport.uz/api/v1/',
+        baseURL: 'http://backend.dacc.uz/api/v1/',
     },
 
     pwa: {
