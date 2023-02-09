@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/centre/management", {data:[{}],fetch:{},mutations:[]});
