@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/ru/centre/structure", {data:[{}],fetch:{},mutations:[]});
